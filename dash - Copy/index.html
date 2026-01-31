@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecuraX Dashboard</title>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- UMD Global Builds (The "Bulletproof" Method) -->
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- Prop-types (Required by some Recharts versions) -->
+    <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+
+    <!-- Recharts (Global window.Recharts) -->
+    <!-- Using a fixed version to ensure UMD compatibility -->
+    <script src="https://unpkg.com/recharts@2.5.0/umd/Recharts.js"></script>
+
+    <!-- Framer Motion (Global window.Motion) -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        dark: '#0f172a',
+                        darker: '#0a0e27',
+                        accent: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        // Global Error Handler to display errors on screen
+        window.onerror = function (message, source, lineno, colno, error) {
+            const errorBox = document.createElement('div');
+            errorBox.style.position = 'fixed';
+            errorBox.style.top = '0';
+            errorBox.style.left = '0';
+            errorBox.style.width = '100%';
+            errorBox.style.padding = '20px';
+            errorBox.style.background = '#ef4444';
+            errorBox.style.color = 'white';
+            errorBox.style.zIndex = '9999';
+            errorBox.style.fontFamily = 'monospace';
+            errorBox.innerHTML = `<strong>Error:</strong> ${message}<br><small>${source}:${lineno}</small>`;
+            document.body.prepend(errorBox);
+        };
+    </script>
+</head>
+
+<body class="bg-slate-900 text-slate-100 overflow-x-hidden">
+    <div id="root" class="flex items-center justify-center min-h-screen text-slate-400">
+        Loading SecuraX Dashboard... (Initializing Babel)
+    </div>
+    <script type="text/babel" data-type="module" src="./main.js"></script>
+</body>
+
+</html>
